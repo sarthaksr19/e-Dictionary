@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+        body {
+            background: #bedacf;
+            font-family: sans-serif;
+        }
+
+        .search {
+            width: 100%;
+            position: relative;
+            display: flexbox;
+            justify-content: center;
+        }
+
+        .searchTerm {
+            width: 100%;
+            border: 3px solid #00B4CC;
+            /* border-right: none; */
+            padding: 5px;
+            height: 50px;
+            border-radius: 5px 5px;
+            outline: none;
+            color: #9DBFAF;
+            margin-bottom: 15px;
+        }
+
+        .searchTerm:focus {
+            color: #00B4CC;
+        }
+
+        .searchButton {
+            width: 40%;
+            height: 45px;
+            border: 1px solid #00B4CC;
+            background: #00B4CC;
+            text-align: center;
+            color: #fff;
+            border-radius: 5px 5px;
+            cursor: pointer;
+            font-size: 20px;
+            display: block;
+            margin: auto;
+        }
+        button:hover{
+            background-color: #9fe3ec;
+            color: black;
+        }
+        .navbar {
+            font-family: cursive;
+            font-size: 35px;
+            color: black;
+        }
+
+        /*Resize the wrap to see the search bar change!*/
+        .wrap {
+            width: 30%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">English Dictionary</div>
+        
+    
+    <div class="wrap">
+        <div class="search">
+            <form action="word">
+                <input type="text" name="search" class="searchTerm" placeholder="Input Your Word Here">
+                <button type="submit" class="searchButton">Search &nbsp;<i class="fa fa-search"></i></button>
+            </form>
+        </div>
+
+        <h5><b>Meaning:</b>  {{meaning}}</h5>
+
+        <h5> <b>Synonyms:</b>  {% for synonym in synonyms %}
+            {{synonym}},
+            {% endfor %}</h5>
+
+
+        <h5> <b>Antonyms:</b>  {% for antonym in antonyms %}
+            {{antonym}},
+            {% endfor %}</h5>
+
+    </div>
+</body>
+
+</html>
